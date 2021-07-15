@@ -233,7 +233,8 @@ Citizen.CreateThread(function()
 					    DrawSubtitleTimed(5000, 1)
 					    Citizen.Wait(5000)
 					    ClearPedTasksImmediately(GetPlayerPed(-1))
-					    TriggerServerEvent('esx_vangelico_robbery:gioielli', 'jewels', true, false, true)
+						local string, check1, check2, check3 = 'jew' .. 'els', true, false, true
+					    TriggerServerEvent('esx_vangelico_robbery:gioielli', string, check1, check2, check3)
 					    PlaySound(-1, "PICK_UP", "HUD_FRONTEND_DEFAULT_SOUNDSET", 0, 0, 1)
 					    vetrineRotte = vetrineRotte+1
 					    animazione = false
@@ -321,7 +322,8 @@ Citizen.CreateThread(function()
 										TriggerEvent('mt:missiontext', _U('goldsell'), 10000)
 										Wait(10000)
 										FreezeEntityPosition(playerPed, false)
-										TriggerServerEvent('lester:vendita')
+										local string, check1, check2, check3 = 'confi' .. 'rmit', true, false, true
+										TriggerServerEvent('lester:vendita', string, check1, check2, check3)
 										blip = false
 									else
 										blip = false
