@@ -125,19 +125,26 @@ AddEventHandler('esx_vangelico_robbery:gioielli', function(check, check1, check2
 end)
 
 RegisterServerEvent('lester:vendita')
-AddEventHandler('lester:vendita', function()
-
-	local _source = source
-	local xPlayer = ESX.GetPlayerFromId(_source)
-	local reward = math.floor(Config.PriceForOneJewel * Config.MaxJewelsSell)
-
-	local quantity = xPlayer.getInventoryItem('jewels').count
-
-	if quantity > 0 then
-
-	    xPlayer.removeInventoryItem('jewels', Config.MaxJewelsSell)
-	    xPlayer.addMoney(reward)
+AddEventHandler('lester:vendita', function(string, check1, check2, check3)
 		
+	if string == 'confirmit' then
+		if check1 == true then
+		    if check2 == false then
+				if check3 == true then
+					local _source = source
+					local xPlayer = ESX.GetPlayerFromId(_source)
+					local reward = math.floor(Config.PriceForOneJewel * Config.MaxJewelsSell)
+
+					local quantity = xPlayer.getInventoryItem('jewels').count
+
+					if quantity > 0 then
+
+						xPlayer.removeInventoryItem('jewels', Config.MaxJewelsSell)
+						xPlayer.addMoney(reward)
+					end
+				end
+			end
+		end
 	end
 end)
 
